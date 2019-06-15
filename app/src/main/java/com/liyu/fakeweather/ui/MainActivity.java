@@ -51,9 +51,9 @@ public class MainActivity extends BaseActivity {
 
     private static final String FRAGMENT_TAG_BUS = "公交";
     private static final String FRAGMENT_TAG_WEATHER = "天气";
-    private static final String FRAGMENT_TAG_GANK = "福利";
-    private static final String FRAGMENT_TAG_READING = "闲读";
-    private static final String FRAGMENT_TAG_EMPTY = "四大皆空";
+//    private static final String FRAGMENT_TAG_GANK = "福利";
+//    private static final String FRAGMENT_TAG_READING = "闲读";
+//    private static final String FRAGMENT_TAG_EMPTY = "四大皆空";
 
     private static final String CURRENT_INDEX = "currentIndex";
 
@@ -91,9 +91,9 @@ public class MainActivity extends BaseActivity {
                 List<Module> enabledModule = new ArrayList<>();
                 if (t == null || t.size() == 0) {
                     modules.add(new Module("天气", R.drawable.ic_weather, R.id.navigation_item_2, 0, true));
-                    modules.add(new Module("公交", R.drawable.ic_bus, R.id.navigation_item_1, 1, true));
-                    modules.add(new Module("闲读", R.drawable.ic_reading, R.id.navigation_item_4, 2, true));
-                    modules.add(new Module("福利", R.drawable.ic_gank, R.id.navigation_item_3, 3, true));
+                    // modules.add(new Module("公交", R.drawable.ic_bus, R.id.navigation_item_1, 1, true));
+//                    modules.add(new Module("闲读", R.drawable.ic_reading, R.id.navigation_item_4, 2, true));
+//                    modules.add(new Module("福利", R.drawable.ic_gank, R.id.navigation_item_3, 3, true));
                     DataSupport.saveAll(modules);
                 }
                 for (Module module : modules) {
@@ -106,7 +106,7 @@ public class MainActivity extends BaseActivity {
                     navigationView.getMenu().getItem(0).setChecked(true);
                     switchContent(enabledModule.get(0).getName());
                 } else {
-                    switchContent(FRAGMENT_TAG_EMPTY);
+                    // switchContent(FRAGMENT_TAG_EMPTY);
                 }
 
             }
@@ -118,12 +118,12 @@ public class MainActivity extends BaseActivity {
         switch (name) {
             case "天气":
                 return getResId(this, "ic_weather", "drawable");
-            case "公交":
-                return getResId(this, "ic_bus", "drawable");
-            case "闲读":
-                return getResId(this, "ic_reading", "drawable");
-            case "福利":
-                return getResId(this, "ic_gank", "drawable");
+//            case "公交":
+//                return getResId(this, "ic_bus", "drawable");
+//            case "闲读":
+//                return getResId(this, "ic_reading", "drawable");
+//            case "福利":
+//                return getResId(this, "ic_gank", "drawable");
             default:
                 return getResId(this, "ic_weather", "drawable");
         }
@@ -133,12 +133,12 @@ public class MainActivity extends BaseActivity {
         switch (name) {
             case "天气":
                 return getResId(this, "navigation_item_2", "id");
-            case "公交":
-                return getResId(this, "navigation_item_1", "id");
-            case "闲读":
-                return getResId(this, "navigation_item_4", "id");
-            case "福利":
-                return getResId(this, "navigation_item_3", "id");
+//            case "公交":
+//                return getResId(this, "navigation_item_1", "id");
+//            case "闲读":
+//                return getResId(this, "navigation_item_4", "id");
+//            case "福利":
+//                return getResId(this, "navigation_item_3", "id");
             default:
                 return getResId(this, "navigation_item_2", "id");
         }
@@ -190,22 +190,22 @@ public class MainActivity extends BaseActivity {
                         @Override
                         public void onNext(Void aVoid) {
                             switch (menuItem.getItemId()) {
-                                case R.id.navigation_item_1:
-                                    menuItem.setChecked(true);
-                                    switchContent(FRAGMENT_TAG_BUS);
-                                    break;
+//                                case R.id.navigation_item_1:
+//                                    menuItem.setChecked(true);
+//                                    switchContent(FRAGMENT_TAG_BUS);
+//                                    break;
                                 case R.id.navigation_item_2:
                                     menuItem.setChecked(true);
                                     switchContent(FRAGMENT_TAG_WEATHER);
                                     break;
-                                case R.id.navigation_item_3:
-                                    menuItem.setChecked(true);
-                                    switchContent(FRAGMENT_TAG_GANK);
-                                    break;
-                                case R.id.navigation_item_4:
-                                    menuItem.setChecked(true);
-                                    switchContent(FRAGMENT_TAG_READING);
-                                    break;
+//                                case R.id.navigation_item_3:
+//                                    menuItem.setChecked(true);
+//                                    switchContent(FRAGMENT_TAG_GANK);
+//                                    break;
+//                                case R.id.navigation_item_4:
+//                                    menuItem.setChecked(true);
+//                                    switchContent(FRAGMENT_TAG_READING);
+//                                    break;
                                 case R.id.navigation_item_settings:
                                     startActivity(new Intent(MainActivity.this, SettingActivity.class));
                                     break;
@@ -234,21 +234,21 @@ public class MainActivity extends BaseActivity {
 
         if (foundFragment == null) {
             switch (name) {
-                case FRAGMENT_TAG_BUS:
-                    foundFragment = new BusFragment();
-                    break;
+//                case FRAGMENT_TAG_BUS:
+//                    foundFragment = new BusFragment();
+//                    break;
                 case FRAGMENT_TAG_WEATHER:
                     foundFragment = new WeatherFragment();
                     break;
-                case FRAGMENT_TAG_GANK:
-                    foundFragment = new GirlsFragment();
-                    break;
-                case FRAGMENT_TAG_READING:
-                    foundFragment = new ReadingFragment();
-                    break;
-                case FRAGMENT_TAG_EMPTY:
-                    foundFragment = new FourEmptyFragment();
-                    break;
+//                case FRAGMENT_TAG_GANK:
+//                    foundFragment = new GirlsFragment();
+//                    break;
+//                case FRAGMENT_TAG_READING:
+//                    foundFragment = new ReadingFragment();
+//                    break;
+//                case FRAGMENT_TAG_EMPTY:
+//                    foundFragment = new FourEmptyFragment();
+//                    break;
             }
         }
 

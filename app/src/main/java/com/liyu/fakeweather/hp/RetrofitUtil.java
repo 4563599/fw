@@ -1,7 +1,8 @@
-package com.liyu.fakeweather.http;
+package com.liyu.fakeweather.hp;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.liyu.fakeweather.http.RetrofitManager;
 
 import java.util.concurrent.TimeUnit;
 
@@ -11,38 +12,38 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by liyu on 2016/8/24.
+ * Created by lyy on 2019/6/11.
  */
-public class RetrofitManager {
 
-    private static RetrofitManager instance;
-    private static Retrofit retrofit;
+public class RetrofitUtil {
+    private volatile static RetrofitUtil sInstance;
+    private Retrofit mRetrofit;
+    private DataService dataService;
     private static Gson mGson;
 
-    private RetrofitManager() {
-        retrofit = new Retrofit.Builder()
-                .baseUrl("http://liyuyu.cn/")
+    private RetrofitUtil() {
+        mRetrofit = new Retrofit.Builder()
+                .baseUrl("http://120.77.144.115:8080")
                 .client(httpClient())
                 .addConverterFactory(GsonConverterFactory.create(gson()))
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
+        dataService = mRetrofit.create(DataService.class);
     }
 
-    public static void reset() {
-        instance = null;
-    }
-
-    public static RetrofitManager getInstance() {
-        if (instance == null) {
-            synchronized (RetrofitManager.class) {
-                instance = new RetrofitManager();
+    public static RetrofitUtil getInstance() {
+        if (sInstance == null) {
+            synchronized (RetrofitUtil.class) {
+                if (sInstance == null) {
+                    sInstance = new RetrofitUtil();
+                }
             }
         }
-        return instance;
+        return sInstance;
     }
 
-    public <T> T create(Class<T> service) {
-        return retrofit.create(service);
+    public DataService getDataService() {
+        return dataService;
     }
 
     private static OkHttpClient httpClient() {
@@ -62,5 +63,4 @@ public class RetrofitManager {
         }
         return mGson;
     }
-
 }

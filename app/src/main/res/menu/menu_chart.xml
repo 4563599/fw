@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_1"
+        android:orderInCategory="80"
+        android:title="温度数据"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_2"
+        android:orderInCategory="80"
+        android:title="湿度数据"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_3"
+        android:orderInCategory="80"
+        android:title="空隙压数据"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_4"
+        android:orderInCategory="80"
+        android:title="降雨量数据"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_5"
+        android:orderInCategory="80"
+        android:title="加速度数据"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_6"
+        android:orderInCategory="80"
+        android:title="应力数据"
+        app:showAsAction="never" />
+</menu>

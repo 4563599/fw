@@ -1,7 +1,6 @@
 <resources>
 
-    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
-    </style>
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar"></style>
 
     <style name="AppTheme" parent="BaseTheme">
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -98,7 +97,10 @@
         <item name="textAllCaps">false</item>
     </style>
 
-    <style name="WebViewTheme" parent="Theme.AppCompat.Light.NoActionBar">
-    </style>
+    <style name="WebViewTheme" parent="Theme.AppCompat.Light.NoActionBar"></style>
+
+    <!--<style name="core_TextAppearance.RobotoThinPath" parent="android:TextAppearance">-->
+        <!--<item name="fontPath">fonts/Roboto-Thin.ttf</item>-->
+    <!--</style>-->
 
 </resources>

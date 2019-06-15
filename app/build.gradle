@@ -57,6 +57,10 @@ dependencies {
     implementation 'com.airbnb.android:lottie:2.2.0'
     implementation 'org.jetbrains:annotations-java5:15.0'
     implementation 'com.tencent.bugly:crashreport_upgrade:latest.release'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'com.github.lzyzsd:circleprogress:1.2.1'
+    compile 'com.daimajia.numberprogressbar:library:1.4@aar'
+    implementation 'com.github.niniloveyou:StateButton:v1.0.0'
 }
 repositories {
     mavenCentral()

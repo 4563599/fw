@@ -1,6 +1,7 @@
 package com.liyu.fakeweather.ui.weather;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.support.design.widget.Snackbar;
@@ -10,11 +11,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.deadline.statebutton.StateButton;
 import com.liyu.fakeweather.R;
 import com.liyu.fakeweather.http.ApiFactory;
 import com.liyu.fakeweather.http.BaseWeatherResponse;
@@ -24,6 +27,7 @@ import com.liyu.fakeweather.model.HeWeather;
 import com.liyu.fakeweather.model.HeWeatherAir;
 import com.liyu.fakeweather.model.IFakeWeather;
 import com.liyu.fakeweather.model.WeatherCity;
+import com.liyu.fakeweather.ui.Char1Activity;
 import com.liyu.fakeweather.ui.base.BaseContentFragment;
 import com.liyu.fakeweather.ui.weather.adapter.AqiAdapter;
 import com.liyu.fakeweather.ui.weather.adapter.HourlyAdapter;
@@ -101,6 +105,8 @@ public class CityWeatherFragment extends BaseContentFragment implements NestedSc
 
     private TextView tvTodayTempMax;
     private TextView tvTodayTempMin;
+    private Button btn1;
+    private Button btn2;
 
     private AqiView aqiView;
 
@@ -112,9 +118,9 @@ public class CityWeatherFragment extends BaseContentFragment implements NestedSc
 
     private boolean aqiViewLastVisible = false;
 
-    private String cityId = "苏州";
+    private String cityId = "深圳";
 
-    private String cityName = "苏州";
+    private String cityName = "深圳";
 
     private BaseWeatherType type;
 
@@ -153,6 +159,7 @@ public class CityWeatherFragment extends BaseContentFragment implements NestedSc
         hourlyAdapter.setDuration(1000);
         hourlyAdapter.openLoadAnimation(BaseQuickAdapter.ALPHAIN);
         hourlyRecyclerView.setAdapter(hourlyAdapter);
+        hourlyRecyclerView.setVisibility(View.GONE);
         weatherChartView = findView(R.id.weatherChartView);
 
         aqiRecyclerView = findView(R.id.recyclerViewAqi);
@@ -179,6 +186,25 @@ public class CityWeatherFragment extends BaseContentFragment implements NestedSc
         suggestionAdapter.openLoadAnimation(BaseQuickAdapter.ALPHAIN);
         suggesstionRecyclerView.setAdapter(suggestionAdapter);
 
+
+        btn1 = findView(R.id.btn1);
+        btn2 = findView(R.id.btn2);
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Char1Activity.class);
+                startActivity(intent);
+            }
+        });
+
+//        btn2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(this, MainActivity.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 
     private Observable<IFakeWeather> getLocalCache() {

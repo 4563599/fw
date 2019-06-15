@@ -140,7 +140,7 @@ public class WeatherFragment extends BaseFragment {
                 .map(new Func1<BDLocation, List<WeatherCity>>() {
                     @Override
                     public List<WeatherCity> call(BDLocation bdLocation) {
-                        String lastLocatedCity = (String) SPUtil.get(getActivity(), LAST_LOCATED_CITY, "苏州");
+                        String lastLocatedCity = (String) SPUtil.get(getActivity(), LAST_LOCATED_CITY, "深圳");
                         String nowCity;
                         List<WeatherCity> savedCities = DataSupport.order("cityIndex").find(WeatherCity.class);
                         WeatherCity city = new WeatherCity();
