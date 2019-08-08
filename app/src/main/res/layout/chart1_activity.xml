@@ -15,6 +15,7 @@
         android:background="@color/colorPrimary">
 
         <TextView
+            android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -42,15 +43,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="100dp"
                 android:padding="60dp"
-                app:progress_text_size="@dimen/sp_14"
+                app:progress_text_color="@color/red"
+                app:progress_text_size="18sp"
                 custom:progress_current="0" />
 
             <TextView
+                android:id="@+id/tv_progress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="湿度数据正在加载中...."
-                android:textColor="@color/lapis_blue" />
+                android:text="温度数据正在加载中...."
+                android:textColor="@color/red"
+                android:textSize="16sp" />
         </LinearLayout>
 
 
@@ -61,8 +65,9 @@
     </FrameLayout>
 
     <LinearLayout
+        android:id="@+id/ll_num"
         android:layout_width="match_parent"
-        android:layout_height="240dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -71,10 +76,18 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="100"
-            android:gravity="center"
+            android:gravity="center|top"
             android:orientation="vertical"
+            android:padding="10dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="当前时间"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/tv_now_hum"
@@ -83,29 +96,27 @@
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="当前时间"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
 
         </LinearLayout>
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="26dp"
-            android:background="#80ffffff" />
 
         <LinearLayout
             android:id="@+id/layout_details_aqi"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="100"
-            android:gravity="center"
+            android:gravity="center|top"
             android:orientation="vertical"
+            android:padding="10dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp">
+
+            <TextView
+                android:id="@+id/tv_sd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="温度 1"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/tv_now_pres"
@@ -113,52 +124,39 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="湿度 1"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
         </LinearLayout>
+    </LinearLayout>
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="26dp"
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/layout_details_wind"
-            android:background="#80ffffff" />
+    <LinearLayout
+        android:id="@+id/ll_bottom_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="150dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:id="@+id/layout_details_wind"
+        <TextView
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/layout_details_aqi"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:visibility="gone">
+            android:layout_marginTop="20dp"
+            android:text="滑坡概率       "
+            android:textColor="@color/red"
+            android:textSize="23sp" />
 
-            <TextView
-                android:id="@+id/tv_now_wind_sc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3级"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/tv_now_wind_dir"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="北风"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-        </LinearLayout>
+        <com.moos.library.HorizontalProgressView
+            android:id="@+id/progressView_horizontal"
+            android:layout_width="320dp"
+            android:layout_height="90dp"
+            app:end_color="@color/red_end"
+            app:end_progress="60"
+            app:isTracked="true"
+            app:progressTextColor="#696969"
+            app:progressTextSize="18sp"
+            app:start_color="@color/red_start"
+            app:textMovedEnable="true"
+            app:trackColor="#f4f4f4"
+            app:track_width="50dp" />
 
     </LinearLayout>
 

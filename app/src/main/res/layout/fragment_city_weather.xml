@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.liyu.fakeweather.widgets.WeatherLinearLayout
+        <cn.hp.hp.widgets.WeatherLinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -206,14 +206,15 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/tv_imgs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/city_blur"
                     android:gravity="center|left"
                     android:paddingLeft="30dp"
-                    android:text="数据监测"
+                    android:text="现场图片监测"
                     android:textColor="@color/white"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
 
@@ -313,7 +314,7 @@
                 android:orientation="vertical"
                 android:showDividers="middle|beginning">
 
-                <com.liyu.fakeweather.widgets.WeatherChartView
+                <cn.hp.hp.widgets.WeatherChartView
                     android:id="@+id/weatherChartView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -329,7 +330,7 @@
                     android:paddingRight="8dp"
                     android:paddingTop="16dp">
 
-                    <com.liyu.fakeweather.widgets.AqiView
+                    <cn.hp.hp.widgets.AqiView
                         android:id="@+id/aqiview"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -364,6 +365,6 @@
                 android:textSize="12sp"
                 android:visibility="gone" />
 
-        </com.liyu.fakeweather.widgets.WeatherLinearLayout>
+        </cn.hp.hp.widgets.WeatherLinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </android.support.v4.widget.SwipeRefreshLayout>

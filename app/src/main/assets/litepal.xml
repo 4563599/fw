@@ -7,17 +7,17 @@
 
     <list>
 
-        <mapping class="com.liyu.fakeweather.model.Gank"></mapping>
+        <mapping class="cn.hp.hp.model.Gank"></mapping>
 
-        <mapping class="com.liyu.fakeweather.model.BusLineDetail"></mapping>
+        <mapping class="cn.hp.hp.model.BusLineDetail"></mapping>
 
-        <mapping class="com.liyu.fakeweather.model.StandInfoBean"></mapping>
+        <mapping class="cn.hp.hp.model.StandInfoBean"></mapping>
 
-        <mapping class="com.liyu.fakeweather.model.WeatherCity"></mapping>
+        <mapping class="cn.hp.hp.model.WeatherCity"></mapping>
 
-        <mapping class="com.liyu.fakeweather.model.HeWeatherCity"></mapping>
+        <mapping class="cn.hp.hp.model.HeWeatherCity"></mapping>
 
-        <mapping class="com.liyu.fakeweather.model.Module"></mapping>
+        <mapping class="cn.hp.hp.model.Module"></mapping>
 
     </list>
 

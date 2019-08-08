@@ -21,7 +21,9 @@
     <color name="kale">#4E673F</color>
     <color name="pink_yarrow">#C72B6C</color>
     <color name="niagara">#4C829E</color>
-
+    <color name="red_start">#FFaa89</color>
+    <color name="red_end">#FF0000</color>
+    <color name="red">#F00</color>
     <array name="colors">
         <item>@color/lapis_blue</item>
         <item>@color/pale_dogwood</item>

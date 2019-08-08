@@ -7,7 +7,7 @@
                 android:padding="8dp"
     >
 
-    <com.liyu.fakeweather.widgets.CircleImageView
+    <cn.hp.hp.widgets.CircleImageView
         android:id="@+id/civ_suggesstion"
         android:layout_width="40dp"
         android:layout_height="40dp"

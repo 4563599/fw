@@ -4,5 +4,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="app_bar_height">230dp</dimen>
     <dimen name="font_space_width">12dp</dimen>
-
+    <dimen name="nav_tab_btn_width">89dp</dimen>
+    <dimen name="nav_tab_btn_height">38.5dp</dimen>
 </resources>

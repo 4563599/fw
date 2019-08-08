@@ -93,6 +93,7 @@
                 android:textSize="16sp"/>
 
             <Button
+                android:visibility="gone"
                 android:id="@+id/btn_web_home"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -162,39 +163,39 @@
                 android:textColor="@color/colorTextDark2nd"
                 android:textSize="16sp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:layout_marginStart="16dp"
-                android:autoLink="web"
-                android:lineSpacingExtra="6dp"
-                android:text="@string/open_source"
-                android:textColorLink="@color/colorTextDark"
-                android:textSize="12sp"
-                />
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginBottom="16dp"-->
+                <!--android:layout_marginStart="16dp"-->
+                <!--android:autoLink="web"-->
+                <!--android:lineSpacingExtra="6dp"-->
+                <!--android:text="@string/open_source"-->
+                <!--android:textColorLink="@color/colorTextDark"-->
+                <!--android:textSize="12sp"-->
+                <!--/>-->
 
-            <include layout="@layout/line_gap"/>
+            <!--<include layout="@layout/line_gap"/>-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:text="联系我"
-                android:textColor="@color/colorTextDark2nd"
-                android:textSize="16sp"/>
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_margin="16dp"-->
+                <!--android:text="联系我"-->
+                <!--android:textColor="@color/colorTextDark2nd"-->
+                <!--android:textSize="16sp"/>-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:layout_marginStart="16dp"
-                android:autoLink="all"
-                android:lineSpacingExtra="6dp"
-                android:text="@string/contact_me"
-                android:textColorLink="@color/colorTextDark"
-                android:textSize="12sp"
-                />
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginBottom="16dp"-->
+                <!--android:layout_marginStart="16dp"-->
+                <!--android:autoLink="all"-->
+                <!--android:lineSpacingExtra="6dp"-->
+                <!--android:text="@string/contact_me"-->
+                <!--android:textColorLink="@color/colorTextDark"-->
+                <!--android:textSize="12sp"-->
+                <!--/>-->
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>

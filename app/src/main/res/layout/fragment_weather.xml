@@ -4,11 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.liyu.fakeweather.widgets.WeatherLinearLayout
+    <cn.hp.hp.widgets.WeatherLinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.liyu.fakeweather.ui.weather.dynamic.DynamicWeatherView
+        <cn.hp.hp.ui.weather.dynamic.DynamicWeatherView
             android:id="@+id/dynamicWeather"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
@@ -16,14 +16,14 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
-    </com.liyu.fakeweather.widgets.WeatherLinearLayout>
+    </cn.hp.hp.widgets.WeatherLinearLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/weatherViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <com.liyu.fakeweather.widgets.SimplePagerIndicator
+    <cn.hp.hp.widgets.SimplePagerIndicator
         android:id="@+id/pager_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

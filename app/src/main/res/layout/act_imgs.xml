@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e1e1e1"
+    android:orientation="vertical">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="现场图片"
+            android:textColor="#FFF"
+            android:textSize="20sp" />
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        tools:text="测试文字" />
+
+
+    <com.github.chrisbanes.photoview.PhotoView
+        android:id="@+id/iv_pic"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!--<com.jaeger.ninegridimageview.NineGridImageView-->
+    <!--android:id="@+id/ngl_images"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:visibility="gone"-->
+    <!--app:imgGap="3dp"-->
+    <!--app:showStyle="grid"-->
+    <!--app:singleImgSize="500dp" />-->
+
+    <!--<ImageView-->
+    <!--android:id="@+id/test_iv"-->
+    <!--android:layout_width="500dp"-->
+    <!--android:layout_height="500dp" />-->
+
+</LinearLayout>
