@@ -206,6 +206,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:visibility="gone"
                     android:id="@+id/tv_imgs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -300,9 +301,45 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="100"
                         android:background="@drawable/city_blur"
-                        android:text="应力数据"
+                        android:text="光照度数据"
                         android:textColor="#fff"
                         android:textSize="20sp" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <Button
+                        android:id="@+id/btn7"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="100"
+                        android:background="@drawable/city_blur1"
+                        android:text="电极电势数据"
+                        android:textColor="#fff"
+                        android:textSize="20sp" />
+
+
+                    <Button
+                        android:id="@+id/btn8"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="100"
+                        android:background="@drawable/city_blur2"
+                        android:text="地表位移数据"
+                        android:textColor="#fff"
+                        android:textSize="20sp" />
+
+
                 </LinearLayout>
             </LinearLayout>
 

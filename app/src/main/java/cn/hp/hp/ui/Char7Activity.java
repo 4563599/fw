@@ -1,22 +1,15 @@
 package cn.hp.hp.ui;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.daimajia.numberprogressbar.NumberProgressBar;
-import com.daimajia.numberprogressbar.OnProgressBarListener;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.LimitLine;
@@ -33,38 +26,27 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.Utils;
 import com.hp.hp.R;
-
-import androidx.annotation.Nullable;
-import cn.hp.hp.hp.RetrofitUtil;
-import cn.hp.hp.hp.SimpleDatasBean;
-import cn.hp.hp.hp.T1Bean;
-import cn.hp.hp.ui.base.BaseActivity;
-
 import com.mingle.widget.LoadingView;
 import com.moos.library.HorizontalProgressView;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 
+import androidx.annotation.Nullable;
+import cn.hp.hp.hp.RetrofitUtil;
+import cn.hp.hp.hp.T1Bean;
 import cn.hp.hp.ui.view.DynamicTitleBar;
 import cn.hp.hp.ui.view.MyMarkerView;
-import rx.Observable;
 import rx.Observer;
-import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action0;
 import rx.schedulers.Schedulers;
 
 /**
- * Created by lyy on 2019/6/13.
+ * Created by lyy on 2019/3/14.
  */
 
-public class Char6Activity extends Activity implements OnChartValueSelectedListener, DynamicTitleBar.OnClickTitleBarListener {
-
+public class Char7Activity extends Activity implements OnChartValueSelectedListener, DynamicTitleBar.OnClickTitleBarListener {
     private LoadingView loadView;
     private LineChart chart;
     private TextView tvX, tvY;
@@ -79,7 +61,7 @@ public class Char6Activity extends Activity implements OnChartValueSelectedListe
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.chartt2_activity);
+        setContentView(R.layout.chartt7_activity);
         loadView = findViewById(R.id.loadView);
         dynamic_title = findViewById(R.id.dynamic_title);
         chart_consumer_time = findViewById(R.id.chart_consumer_time);
@@ -361,7 +343,7 @@ public class Char6Activity extends Activity implements OnChartValueSelectedListe
     }
 
     private void getDataFromNet(int hour) {
-        RetrofitUtil.getInstance().getDataService().get_illuminance_mean(hour).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<T1Bean>() {
+        RetrofitUtil.getInstance().getDataService().get_V1_mean(hour).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<T1Bean>() {
             @Override
             public void onCompleted() {
                 Log.i("lyy08", "onCompleted");
@@ -383,4 +365,3 @@ public class Char6Activity extends Activity implements OnChartValueSelectedListe
         });
     }
 }
-

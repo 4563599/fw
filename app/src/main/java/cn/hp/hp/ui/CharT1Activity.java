@@ -347,7 +347,7 @@ public class CharT1Activity extends Activity implements OnChartValueSelectedList
     }
 
     private void getDataFromNet(int hour) {
-        RetrofitUtil.getInstance().getDataService().getT1ByHour(hour).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<T1Bean>() {
+        RetrofitUtil.getInstance().getDataService().get_T1(hour).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<T1Bean>() {
             @Override
             public void onCompleted() {
                 Log.i("lyy08", "onCompleted");

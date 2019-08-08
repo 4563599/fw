@@ -144,7 +144,8 @@
         <activity android:name="cn.hp.hp.ui.CharRainfallActivity"></activity>
         <activity android:name="cn.hp.hp.ui.CharA1Activity"></activity>
         <activity android:name="cn.hp.hp.ui.Char6Activity"></activity>
-
+        <activity android:name="cn.hp.hp.ui.Char7Activity"></activity>
+        <activity android:name="cn.hp.hp.ui.Char8Activity"></activity>
         <activity android:name="cn.hp.hp.ui.ImagesActivity"></activity>
         <activity
                 android:name="cn.hp.hp.ui.SplashActivity"

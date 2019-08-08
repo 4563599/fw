@@ -32,6 +32,8 @@ import cn.hp.hp.ui.Char3Activity;
 import cn.hp.hp.ui.Char4Activity;
 import cn.hp.hp.ui.Char5Activity;
 import cn.hp.hp.ui.Char6Activity;
+import cn.hp.hp.ui.Char7Activity;
+import cn.hp.hp.ui.Char8Activity;
 import cn.hp.hp.ui.CharA1Activity;
 import cn.hp.hp.ui.CharH1Activity;
 import cn.hp.hp.ui.CharPressure1Activity;
@@ -124,6 +126,8 @@ public class CityWeatherFragment extends BaseContentFragment implements NestedSc
     private Button btn4;
     private Button btn5;
     private Button btn6;
+    private Button btn7;
+    private Button btn8;
 
     private AqiView aqiView;
 
@@ -211,6 +215,8 @@ public class CityWeatherFragment extends BaseContentFragment implements NestedSc
         btn4 = findView(R.id.btn4);
         btn5 = findView(R.id.btn5);
         btn6 = findView(R.id.btn6);
+        btn7 = findView(R.id.btn7);
+        btn8 = findView(R.id.btn8);
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -254,13 +260,29 @@ public class CityWeatherFragment extends BaseContentFragment implements NestedSc
             }
         });
 
-//        btn6.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getActivity(), Char6Activity.class);
-//                startActivity(intent);
-//            }
-//        });
+        btn6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Char6Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        btn7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Char7Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        btn8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Char8Activity.class);
+                startActivity(intent);
+            }
+        });
 
         tv_imgs.setOnClickListener(new View.OnClickListener() {
             @Override

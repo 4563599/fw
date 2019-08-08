@@ -352,7 +352,7 @@ public class CharRainfallActivity extends Activity implements OnChartValueSelect
     }
 
     private void getDataFromNet(int hour) {
-        RetrofitUtil.getInstance().getDataService().getRainFallByHour(hour).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<T1Bean>() {
+        RetrofitUtil.getInstance().getDataService().get_rainfall_mean(hour).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<T1Bean>() {
             @Override
             public void onCompleted() {
                 Log.i("lyy08", "onCompleted");

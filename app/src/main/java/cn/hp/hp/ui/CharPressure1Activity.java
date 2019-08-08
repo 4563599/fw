@@ -343,7 +343,7 @@ public class CharPressure1Activity extends Activity implements OnChartValueSelec
     }
 
     private void getDataFromNet(int hour) {
-        RetrofitUtil.getInstance().getDataService().getPressure1ByHour(hour).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<T1Bean>() {
+        RetrofitUtil.getInstance().getDataService().get_Pressure1_mean(hour).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<T1Bean>() {
             @Override
             public void onCompleted() {
                 Log.i("lyy08", "onCompleted");

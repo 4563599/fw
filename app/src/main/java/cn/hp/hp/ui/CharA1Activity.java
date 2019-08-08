@@ -74,11 +74,14 @@ public class CharA1Activity extends Activity implements OnChartValueSelectedList
         chart_tv_3 = findViewById(R.id.chart_tv_3);
         chart_tv_4 = findViewById(R.id.chart_tv_4);
         List<String> titles = new ArrayList<>();
-        titles.add("最近1分钟");
+        titles.add("最近1小时");
+        titles.add("最近6小时");
+        titles.add("最近12小时");
+        titles.add("最近24小时");
         dynamic_title.setTitleBars(titles);
         dynamic_title.setSelectItem(0);
         dynamic_title.setOnClickTitleBarListener(this);
-        getDataFromNet();
+        getDataFromNet(1);
 
         int max = 19;
         int min = 6;
@@ -87,10 +90,10 @@ public class CharA1Activity extends Activity implements OnChartValueSelectedList
         horizontalProgressView.setProgress(s);
     }
 
-    private void initChart(A1Bean a1Bean) {
-        String begin_time = a1Bean.getBaseDataList().get(0).getTime();
-        String end_time = a1Bean.getBaseDataList().get(a1Bean.getBaseDataList().size() - 1).getTime();
-        chart_consumer_time.setText("获取最新一分钟数据:" + begin_time + "  " + end_time);
+    private void initChart(T1Bean t1Bean) {
+        String begin_time = t1Bean.getBaseDataList().get(0).getTime();
+        String end_time = t1Bean.getBaseDataList().get(t1Bean.getBaseDataList().size() - 1).getTime();
+        chart_consumer_time.setText("获取最新时间为:" + begin_time + "  " + end_time);
 
         {   // // Chart Style // //
 
@@ -140,15 +143,15 @@ public class CharA1Activity extends Activity implements OnChartValueSelectedList
             xAxis.enableGridDashedLine(10f, 10f, 0f);
         }
 
-        float max = Float.parseFloat(a1Bean.getBaseNumData().getMax());
-        float min = Float.parseFloat(a1Bean.getBaseNumData().getMin());
+        float max = Float.parseFloat(t1Bean.getBaseNumData().getMax());
+        float min = Float.parseFloat(t1Bean.getBaseNumData().getMin());
 
-        float max_t = Float.parseFloat(a1Bean.getBaseNumData().getMax());
-        float min_t = Float.parseFloat(a1Bean.getBaseNumData().getMin());
-        float avg = Float.parseFloat(a1Bean.getBaseNumData().getAvg());
+        float max_t = Float.parseFloat(t1Bean.getBaseNumData().getMax());
+        float min_t = Float.parseFloat(t1Bean.getBaseNumData().getMin());
+        float avg = Float.parseFloat(t1Bean.getBaseNumData().getAvg());
 
 
-        chart_tv_1.setText(a1Bean.getBaseDataList().get(a1Bean.getBaseDataList().size() - 1).getNums().get(0) + "");
+        chart_tv_1.setText(t1Bean.getBaseDataList().get(t1Bean.getBaseDataList().size() - 1).getNum());
         chart_tv_2.setText(max_t + "");
         chart_tv_3.setText(min_t + "");
         chart_tv_4.setText(avg + "");
@@ -198,7 +201,7 @@ public class CharA1Activity extends Activity implements OnChartValueSelectedList
             //xAxis.addLimitLine(llXAxis);
         }
 
-        setData(a1Bean);
+        setData(t1Bean);
 
         // draw points over time
         chart.animateX(1000);
@@ -210,15 +213,15 @@ public class CharA1Activity extends Activity implements OnChartValueSelectedList
         l.setForm(Legend.LegendForm.LINE);
     }
 
-    private void setData(A1Bean t1Bean) {
+    private void setData(T1Bean t1Bean) {
         final ArrayList<Entry> values = new ArrayList<>();
-        for (int i = 0; i < t1Bean.getBaseDataList().get(0).getNums().size(); i++) {
-            String now_time = t1Bean.getBaseDataList().get(0).getTime();
+        for (int i = 0; i < t1Bean.getBaseDataList().size(); i++) {
+            String now_time = t1Bean.getBaseDataList().get(i).getTime();
             String time1 = now_time.substring(now_time.length() - 6, now_time.length() - 4);
             String time2 = now_time.substring(now_time.length() - 4, now_time.length() - 2);
             String time = time1 + ":" + time2;
             Log.i("lyy08", time);
-            values.add(new Entry(i, t1Bean.getBaseDataList().get(0).getNums().get(i), time));
+            values.add(new Entry(i, Float.parseFloat(t1Bean.getBaseDataList().get(i).getNum()), time));
         }
 
         LineDataSet set1;
@@ -327,11 +330,21 @@ public class CharA1Activity extends Activity implements OnChartValueSelectedList
 
     @Override
     public void onClick(int pos) {
-        getDataFromNet();
+        int hour = 1;
+        if (pos == 3) {
+            hour = 24;
+        } else if (pos == 2) {
+            hour = 12;
+        } else if (pos == 1) {
+            hour = 6;
+        } else {
+            hour = 1;
+        }
+        getDataFromNet(hour);
     }
 
-    private void getDataFromNet() {
-        RetrofitUtil.getInstance().getDataService().getA1ByHour().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<A1Bean>() {
+    private void getDataFromNet(int hour) {
+        RetrofitUtil.getInstance().getDataService().get_A1_variance(hour).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<T1Bean>() {
             @Override
             public void onCompleted() {
                 Log.i("lyy08", "onCompleted");
@@ -345,9 +358,9 @@ public class CharA1Activity extends Activity implements OnChartValueSelectedList
             }
 
             @Override
-            public void onNext(A1Bean a1Bean) {
+            public void onNext(T1Bean t1Bean) {
                 loadView.setVisibility(View.GONE);
-                initChart(a1Bean);
+                initChart(t1Bean);
             }
 
         });
